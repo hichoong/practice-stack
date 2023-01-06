@@ -24,13 +24,11 @@ public class HelloController {
 
     @PostMapping("log-test")
     public void logTest(){
-
         LOGGER.trace("Trace Log");
         LOGGER.debug("Debug Log");
         LOGGER.info("Info Log");
         LOGGER.warn("Warn Log");
         LOGGER.error("Error Log");
-
     }
 
     @PostMapping("/exception")
@@ -41,7 +39,6 @@ public class HelloController {
     @ExceptionHandler(value = Exception.class)
     public ResponseEntity<Map<String, String>> ExceptionHandler(Exception e) {
         HttpHeaders responseHeaders = new HttpHeaders();
-        //responseHeaders.add(HttpHeaders.CONTENT_TYPE, "application/json");
         HttpStatus httpStatus = HttpStatus.BAD_REQUEST;
 
         LOGGER.info(e.getMessage());
